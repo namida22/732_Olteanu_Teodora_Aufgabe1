@@ -17,8 +17,8 @@ public class OffertenRepository {
         this.offertenRepository = offertenRepository;
     }
 
-    /*
-    read from offerten.txt and add each Offert object to the Repository
+    /**
+        read from offerten.txt and add each Offert object to the Repository
      */
     public void lesen() throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader("Aufgabe1\\src\\offerten.txt"));

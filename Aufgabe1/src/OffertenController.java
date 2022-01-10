@@ -12,6 +12,7 @@ public class OffertenController {
     /**
      * sort in a auxrepo all the Offerts
      * writes the sorted offerts into txt file
+     * anschreiben von Offerten mit dem PReis aktualisiert und berechnet mit dem MWST
      * @throws IOException
      */
     public void sortieren() throws IOException {
@@ -34,7 +35,7 @@ public class OffertenController {
 
     /**
      * top of the unternehemen mit most income
-     * Top mit dem Preis mit MWST
+     * Top mit dem Preis mit MWST berechnet
      */
     public void top() throws IOException {
         OffertenRepository.offertenRepository.sort(Comparator.comparing(Offerte::getPreis).reversed());
