@@ -9,7 +9,7 @@ public class Offerte {
     private int id;
     private String unternehmensName;
     private float preis;
-    private String mehrwertsteuer;
+    private float mehrwertsteuer;
     private String adresse;
     private enum_ort ort;
 
@@ -39,11 +39,11 @@ public class Offerte {
         this.preis = preis;
     }
 
-    public String getMehrwertsteuer() {
+    public float getMehrwertsteuer() {
         return mehrwertsteuer;
     }
 
-    public void setMehrwertsteuer(String mehrwertsteuer) {
+    public void setMehrwertsteuer(float mehrwertsteuer) {
         this.mehrwertsteuer = mehrwertsteuer;
     }
 

@@ -33,7 +33,7 @@ public class OffertenRepository {
             offerte.setId(Integer.parseInt(var[0]));
             offerte.setUnternehmensName(var[1]);
             offerte.setPreis(Float.parseFloat(var[2]));
-            offerte.setMehrwertsteuer(var[3]);
+            offerte.setMehrwertsteuer(Float.parseFloat(var[3]));
             offerte.setAdresse(var[4]);
             offerte.setOrt(enum_ort.valueOf(var[5]));
 
