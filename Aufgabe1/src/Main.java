@@ -11,7 +11,5 @@ public class Main {
         offertenController.sortieren();
 
         offertenController.top();
-        //for(Offerte o: OffertenRepository.offertenRepository)
-            //System.out.println(o);
     }
 }
