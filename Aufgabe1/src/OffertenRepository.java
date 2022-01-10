@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -39,5 +37,17 @@ public class OffertenRepository {
 
             offertenRepository.add(offerte);
         }
+    }
+
+    public static void inTextFileAufschreiben(File file, ArrayList<Offerte> arrayList) throws IOException {
+
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
+
+        for(Offerte offerte: arrayList) {
+            bufferedWriter.write(offerte.getId() + "&" + offerte.getUnternehmensName() + "&" + offerte.getPreis()
+                    + "&" + offerte.getMehrwertsteuer() + "&" + offerte.getAdresse()+ "&" +offerte.getOrt() + "\n") ;
+
+        }
+        bufferedWriter.close();
     }
 }

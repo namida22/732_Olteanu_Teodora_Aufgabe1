@@ -7,6 +7,9 @@ public class Main {
         OffertenRepository offertenRepository = new OffertenRepository();
         offertenRepository.lesen();
 
+        OffertenController offertenController = new OffertenController();
+        offertenController.sortieren();
+
         //for(Offerte o: OffertenRepository.offertenRepository)
             //System.out.println(o);
     }

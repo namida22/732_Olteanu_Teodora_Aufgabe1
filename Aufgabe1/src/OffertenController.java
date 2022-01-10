@@ -1,18 +1,23 @@
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Comparator;
 
 public class OffertenController {
 
     OffertenRepository offertenRepository = new OffertenRepository();
 
-    public void sortieren()
-    {
-        OffertenRepository.offertenRepository.sort(Comparator.comparing(Offerte::getPreis).reversed());
-        substract_MWST();
+    public void sortieren() throws IOException {
+        ArrayList<Offerte> offertenAux = new ArrayList<>();
+        offertenAux = OffertenRepository.offertenRepository;
+
+        for(Offerte o: offertenAux)
+            o.setPreis(o.getPreis() + (o.getMehrwertsteuer()/100)*o.getPreis());
+
+        offertenAux.sort(Comparator.comparing(Offerte::getPreis).reversed());
+
+        OffertenRepository.inTextFileAufschreiben(new File("AUfgabe1\\src\\offertensortiert.txt"), offertenAux);
     }
 
-    public void substract_MWST()
-    {
-        for (Offerte o: OffertenRepository.offertenRepository)
-            o.setPreis(o.getPreis() - o.getPreis()*o.getMehrwertsteuer());
-    }
+
 }
