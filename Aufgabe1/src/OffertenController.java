@@ -1,4 +1,6 @@
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -37,7 +39,12 @@ public class OffertenController {
     public void top() throws IOException {
         OffertenRepository.offertenRepository.sort(Comparator.comparing(Offerte::getPreis).reversed());
 
-        OffertenRepository.inTextFileAufschreiben(new File("Aufgabe1\\src\\statistik.txt"),OffertenRepository.offertenRepository);
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("Aufgabe1\\src\\statistik.txt"));
+
+        for(Offerte offerte: OffertenRepository.offertenRepository) {
+            bufferedWriter.write( offerte.getOrt() + " " + offerte.getPreis() + "\n") ;
+        }
+        bufferedWriter.close();
     }
 
 
